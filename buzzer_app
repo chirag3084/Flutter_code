@@ -37,7 +37,7 @@ class _BuzzerHomeState extends State<BuzzerHome> {
         child: ElevatedButton(
           onPressed: _toggleBuzzer,
           style: ElevatedButton.styleFrom(
-            primary: isPressed ? Colors.red : Colors.green,
+            backgroundColor: isPressed ? Colors.red : Colors.green,
             padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
           ),
           child: Text(
