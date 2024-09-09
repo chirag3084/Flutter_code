@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(BuzzerApp());
+}
+
+class BuzzerApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: BuzzerHome(),
+    );
+  }
+}
+
+class BuzzerHome extends StatefulWidget {
+  @override
+  _BuzzerHomeState createState() => _BuzzerHomeState();
+}
+
+class _BuzzerHomeState extends State<BuzzerHome> {
+  bool isPressed = false;
+
+  void _toggleBuzzer() {
+    setState(() {
+      isPressed = !isPressed;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Buzzer App'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: _toggleBuzzer,
+          style: ElevatedButton.styleFrom(
+            primary: isPressed ? Colors.red : Colors.green,
+            padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+          ),
+          child: Text(
+            isPressed ? 'Buzzed!' : 'Press the Buzzer',
+            style: TextStyle(fontSize: 24),
+          ),
+        ),
+      ),
+    );
+  }
+}
